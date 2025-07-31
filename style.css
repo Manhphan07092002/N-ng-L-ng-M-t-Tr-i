@@ -1,0 +1,275 @@
+/* --- BIẾN MÀU VÀ CÀI ĐẶT CHUNG --- */
+:root {
+    --primary-blue: #00529B; /* Màu xanh đậm của logo CTC */
+    --secondary-blue: #00A3E0; /* Màu xanh nhạt của logo CTC */
+    --text-dark: #1f2937;
+    --text-light: #4b5563;
+    --bg-light: #f9fafb;
+    --border-color: #e5e7eb;
+    --white: #ffffff;
+}
+
+body { 
+    font-family: 'Be Vietnam Pro', sans-serif; 
+    scroll-behavior: smooth;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+@keyframes fadeIn { 
+    from { opacity: 0; } 
+    to { opacity: 1; } 
+}
+
+/* --- HEADER & NAVIGATION --- */
+header {
+    border-bottom: 1px solid var(--border-color);
+}
+
+header nav .nav-link {
+    position: relative;
+    padding: 8px 4px;
+    margin: 0 12px;
+    font-weight: 500;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+header nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary-blue);
+    transition: width 0.3s ease-in-out;
+}
+
+header nav .nav-link:hover {
+    color: var(--primary-blue);
+}
+
+header nav .nav-link:hover::after {
+    width: 100%;
+}
+
+/* Style cho nav-link đang active (trang hiện tại) */
+header nav .nav-link.active {
+    color: var(--primary-blue);
+    font-weight: 600;
+}
+header nav .nav-link.active::after {
+    width: 100%;
+}
+
+
+.lang-switcher { 
+    cursor: pointer; 
+    font-weight: 600; 
+    padding: 4px 8px; 
+    border-radius: 6px; 
+}
+
+.lang-switcher.active { 
+    background-color: #e0f2fe; 
+    color: var(--primary-blue); 
+}
+
+/* --- TIÊU ĐỀ TRANG CON (About, Services, Projects) --- */
+.page-header {
+    background-color: var(--primary-blue);
+    background-image: linear-gradient(rgba(0, 82, 155, 0.8), rgba(0, 82, 155, 0.8)), url('https://images.unsplash.com/photo-1553095066-5014bc7b7f2d?q=80&w=2071&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    padding: 4rem 1rem;
+    text-align: center;
+    color: var(--white);
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+/* --- CÁC THÀNH PHẦN CHUNG (Card) --- */
+.card { 
+    background-color: var(--white); 
+    border-radius: 0.75rem; 
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05); 
+    transition: transform 0.3s, box-shadow 0.3s; 
+    border: 1px solid var(--border-color);
+}
+
+.card:hover { 
+    transform: translateY(-8px); 
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); 
+}
+
+
+/* --- GIAO DIỆN FORM (TRANG PHÂN TÍCH) --- */
+.form-section { 
+    display: none; 
+    max-height: 0; 
+    overflow: hidden; 
+    transition: max-height 0.5s ease-in-out; 
+}
+
+.form-section.active { 
+    display: block; 
+    max-height: 500px; /* Tăng chiều cao để chứa đủ form */
+}
+
+.form-fieldset {
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin-top: 1rem;
+}
+
+.form-legend {
+    padding: 0 0.75rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+}
+
+.form-label {
+    display: block;
+    font-weight: 500;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    background-color: #f9fafb;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(0, 82, 155, 0.2);
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 0.875rem;
+    color: #9ca3af;
+}
+
+.input-group .form-input {
+    padding-left: 2.75rem;
+}
+
+/* --- THANH TRƯỢT & TABS (TRANG PHÂN TÍCH) --- */
+.range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--primary-blue);
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.range-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: var(--primary-blue);
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.tab-btn {
+    padding: 8px 16px;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -1px;
+    font-weight: 600;
+    color: var(--text-light);
+    transition: all 0.2s;
+}
+
+.tab-btn:hover {
+    color: var(--primary-blue);
+}
+
+.tab-btn.active {
+    color: var(--primary-blue);
+    border-bottom-color: var(--primary-blue);
+}
+
+.tab-panel {
+    display: none;
+    animation: fadeIn 0.4s;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+.chart-container {
+    position: relative;
+    height: 280px;
+    width: 100%;
+}
+
+
+/* --- FOOTER --- */
+footer {
+    border-top: 1px solid #d1d5db;
+}
+
+
+/* --- PHẦN RESPONSIVE --- */
+@media (max-width: 1024px) {
+    /* Áp dụng cho form và báo cáo trên trang phân tích */
+    #analysis-form-container .grid,
+    #report-content .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    h1 {
+        font-size: 2.25rem;
+    }
+    h2 {
+        font-size: 1.875rem;
+    }
+
+    /* Điều chỉnh header cho mobile */
+    header nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    /* Điều chỉnh form trên mobile */
+    .form-fieldset {
+        padding: 1rem;
+    }
+
+    #monthly-bills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

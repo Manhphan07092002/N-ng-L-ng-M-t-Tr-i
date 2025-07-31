@@ -1,0 +1,5 @@
+{
+  "appId": "com.ctc.solaranalytics",
+  "appName": "CTC SolarAnalytics",
+  "webDir": "www# Trong quá trình init, nó sẽ hỏi thư mục web của bạn là gì.# Giả sử tất cả các file .html, .js, .css của bạn nằm ở thư mục gốc,# bạn có thể nhập `.` hoặc để trống. Nếu chúng nằm trong thư mục `public` hoặc `dist`, hãy nhập tên thư mục đó.# Thêm nền tảng Androidnpm install @capacitor/androidnpx cap add android"
+}
